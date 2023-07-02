@@ -7,11 +7,15 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
+        plugin = "html:target/cucember-report.html",
         features = "src/test/resources/features",
-        glue = "com/cydeo/step_definitions"
-
+        glue = "com/cydeo/step_definitions",
+        dryRun = false,
+        tags = "@wip",
+        publish = true  //generating a report with public report
 
 
 )
 
-public class CukesRunner { }
+public class CukesRunner {
+}
