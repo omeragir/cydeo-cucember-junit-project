@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.R_VytrackLoginPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -30,7 +31,7 @@ public class R_VytrackLogin_StepDefinitions {
     @Then("user should be able to login")
     public void user_should_be_able_to_login() {
 
-        //BrowserUtils.sleep(3);
+        BrowserUtils.sleep(3);
 
         String actualTitle = Driver.getDriver().getTitle();
         String expectedTitle = "Dashboard";
@@ -41,8 +42,8 @@ public class R_VytrackLogin_StepDefinitions {
         //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
         //wait.until(ExpectedConditions.invisibilityOf(vytrackLoginPage.loadingBar));
 
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.titleIs("Dashboard"));
+        //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
+        //wait.until(ExpectedConditions.titleIs("Dashboard"));
 
 
         String actual = Driver.getDriver().getTitle();

@@ -1,4 +1,3 @@
-
 @vytrackLogin
 Feature:Users should be able to login
   User Story:
@@ -14,12 +13,11 @@ Feature:Users should be able to login
     When user enters the driver information
     Then user should be able to login
 
-
+  @salesmanager
   Scenario: Login as sales manager
     #Given user is on the login page
     When user enters the sales manager information
     Then user should be able to login
-
 
 
   Scenario: Login as store manager
