@@ -23,7 +23,7 @@ public class R_VytrackLogin_StepDefinitions {
 
     @When("user enters the driver information")
     public void user_enters_the_driver_information() {
-        vytrackLoginPage.login(ConfigurationReader.getProperty("driver_username"),ConfigurationReader.getProperty("driver_password"));
+        vytrackLoginPage.login(ConfigurationReader.getProperty("driver_username"), ConfigurationReader.getProperty("driver_password"));
 
     }
 
@@ -38,29 +38,37 @@ public class R_VytrackLogin_StepDefinitions {
 
         // we need to use explicit wait to handle conditions
         // implicit wait doesn't work for assertion because there is no findelement(s)/FindBy to look for
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.invisibilityOf(vytrackLoginPage.loadingBar));
+        //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
+        //wait.until(ExpectedConditions.invisibilityOf(vytrackLoginPage.loadingBar));
 
-        Assert.assertEquals("Title verification failed!",expectedTitle,actualTitle);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.titleIs("Dashboard"));
+
+
+        String actual = Driver.getDriver().getTitle();
+        String expected = "Dashboard";
+        Assert.assertEquals(actual, expected);
+
+        Assert.assertEquals("Title verification failed!", expectedTitle, actualTitle);
 
     }
 
     @When("user enters the sales manager information")
     public void user_enters_the_sales_manager_information() {
-        vytrackLoginPage.login(ConfigurationReader.getProperty("sales_manager_username"),ConfigurationReader.getProperty("sales_manager_password"));
+        vytrackLoginPage.login(ConfigurationReader.getProperty("sales_manager_username"), ConfigurationReader.getProperty("sales_manager_password"));
 
     }
 
     @When("user enters the store manager information")
     public void user_enters_the_store_manager_information() {
-        vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),ConfigurationReader.getProperty("store_manager_password"));
+        vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"), ConfigurationReader.getProperty("store_manager_password"));
     }
 
 
     @When("user enters the {string} information")
     public void user_enters_the_information(String string) {
 
-    vytrackLoginPage.loginDynamic(string);
+        vytrackLoginPage.loginDynamic(string);
 
     }
 
