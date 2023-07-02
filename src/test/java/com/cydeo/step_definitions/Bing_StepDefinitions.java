@@ -7,6 +7,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Bing_StepDefinitions {
 
@@ -14,33 +18,35 @@ public class Bing_StepDefinitions {
 
     @Given("user is on the Bing search page")
     public void user_is_on_the_bing_search_page() {
+
         Driver.getDriver().get("https://www.bing.com");
 
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(bingSearchPage.searchBox));
     }
-
     @When("user enters orange in the Bing search box")
     public void user_enters_orange_in_the_bing_search_box() {
-        BrowserUtils.sleep(2);
         bingSearchPage.cookiesBing.click();
         bingSearchPage.searchBox.sendKeys("orange" + Keys.ENTER);
     }
 
+
     @When("user enters {string} in the Bing search box")
     public void userEntersInTheBingSearchBox(String searchKey) {
-        BrowserUtils.sleep(2);
-        bingSearchPage.cookiesBing.click();
-        bingSearchPage.searchBox.sendKeys(searchKey+Keys.ENTER);
-
+        bingSearchPage.searchBox.sendKeys(searchKey + Keys.ENTER);
     }
 
     @Then("user should see {string} in the title")
     public void userShouldSeeInTheTitle(String expectedTitle) {
-        BrowserUtils.verifyTitleContains(expectedTitle);
+
+        BrowserUtils.verifyTitle(expectedTitle);
+        //BrowserUtils.verifyTitleContains(expectedTitle);
 
     }
 
     @Then("user sees orange in the title")
     public void userSeesOrangeInTheTitle() {
-        BrowserUtils.verifyTitle("orange - Suchen");
+        BrowserUtils.verifyTitle("orange - Search");
+
     }
 }
