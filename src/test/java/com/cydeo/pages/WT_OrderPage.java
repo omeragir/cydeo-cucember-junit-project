@@ -7,36 +7,35 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class Wt_OrderPage extends WT_BasePage{
+public class WT_OrderPage extends  WT_BasePage{
 
-    public Wt_OrderPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public WT_OrderPage(){
+        PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(name="product")
+
+    @FindBy(name = "product")
     public WebElement productDropdown;
 
     @FindBy(xpath = "//input[@value='Visa']")
-    public WebElement visaRadiButton;
+    public WebElement visaRadioButton;
 
     @FindBy(xpath = "//input[@value='MasterCard']")
-    public WebElement masterCardRadiButton;
+    public WebElement masterCardRadioButton;
 
     @FindBy(xpath = "//input[@value='American Express']")
-    public WebElement americanExpressRadiButton;
+    public WebElement americanExpressRadioButton;
 
-    //We find same attribute and value directly add our list of WebElement
-    @FindBy(name="card")
+    @FindBy(name = "card")
     public List<WebElement> cardTypes;
 
-
-    @FindBy(name="quantity")
+    @FindBy(name = "quantity")
     public WebElement inputQuantity;
 
     @FindBy(xpath = "//button[.='Calculate']")
     public WebElement calculateButton;
 
-    @FindBy(name="name")
-    public WebElement inputNAme;
+    @FindBy(name = "name")
+    public WebElement inputName;
 
     @FindBy(name = "street")
     public WebElement inputStreet;
@@ -51,11 +50,13 @@ public class Wt_OrderPage extends WT_BasePage{
     public WebElement inputZip;
 
     @FindBy(name = "cardNo")
-    public WebElement inputCard;
+    public WebElement inputCreditCard;
 
     @FindBy(name = "cardExp")
-    public WebElement inputExpressionsDate;
+    public WebElement inputExpirationDate;
 
     @FindBy(xpath = "//button[.='Process Order']")
     public WebElement processButton;
+
+
 }

@@ -9,14 +9,16 @@ public class BingSearchPage {
 
     //#1:
     public BingSearchPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(), this);
     }
-    //#2:
 
+    //#2:
+    @FindBy(name = "q")
+    public WebElement searchBox;
+
+    //#3:
     @FindBy(xpath = "//button[@id='bnp_btn_reject']")
     public WebElement cookiesBing;
 
-    @FindBy(name="q")
-    public WebElement searchBox;
-
 }
+

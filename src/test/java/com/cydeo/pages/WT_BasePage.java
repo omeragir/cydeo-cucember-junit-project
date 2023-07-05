@@ -6,18 +6,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class WT_BasePage {
+
     public WT_BasePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(xpath = "//button[.='View all orders']")
+
+    @FindBy(xpath = "//button[text()='View all orders']")
     public WebElement viewAllOrdersLink;
 
-    @FindBy(xpath = "//button[.='View all products']")
+    @FindBy(xpath = "//button[text()='View all products']")
     public WebElement viewAllProductsLink;
 
-    @FindBy(xpath = "//button[.='Order']")
+    @FindBy(xpath = "//button[text()='Order']")
     public WebElement orderLink;
 
-    @FindBy(xpath = "//button[.='Logout']")
+    @FindBy(xpath = "//button[text()='Logout']")
     public WebElement logOutLink;
+
 }

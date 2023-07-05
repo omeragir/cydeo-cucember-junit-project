@@ -6,16 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-
-        plugin = "html:target/cucember-report.html",
+        plugin = {
+                "html:target/cucumber-reports.html",
+                "rerun:target/rerun.txt",
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
+        },
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
         dryRun = false,
         tags = "@new",
-        publish = true  //generating a report with public report
-
-
+        publish = true //generating a report with public link
 )
-
-public class CukesRunner {
-}
+public class CukesRunner {}

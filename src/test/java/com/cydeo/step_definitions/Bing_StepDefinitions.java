@@ -26,7 +26,7 @@ public class Bing_StepDefinitions {
     }
     @When("user enters orange in the Bing search box")
     public void user_enters_orange_in_the_bing_search_box() {
-        bingSearchPage.cookiesBing.click();
+        //bingSearchPage.cookiesBing.click();
         bingSearchPage.searchBox.sendKeys("orange" + Keys.ENTER);
     }
 
@@ -40,13 +40,13 @@ public class Bing_StepDefinitions {
     public void userShouldSeeInTheTitle(String expectedTitle) {
 
         BrowserUtils.verifyTitle(expectedTitle);
-        //BrowserUtils.verifyTitleContains(expectedTitle);
+        BrowserUtils.verifyTitleContains(expectedTitle);
 
     }
 
     @Then("user sees orange in the title")
     public void userSeesOrangeInTheTitle() {
-        BrowserUtils.verifyTitle("orange - Search");
+        BrowserUtils.verifyTitle("orange - Suchen");
 
     }
 }
