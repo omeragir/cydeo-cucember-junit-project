@@ -54,3 +54,4 @@ Feature: Cucumber Data Tables implementation practices
       | October   |
       | November  |
       | December  |
+
