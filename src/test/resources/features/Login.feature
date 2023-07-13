@@ -8,21 +8,21 @@ Feature: Library login feature
   Background: For all scenarios user is on the login page of the library application
     Given user is on the login page of the library application
 
-@librarian @smoke
+@librarian
   Scenario: Login as library
 
     When user enters librarian username
     And user enters librarian password
     Then user should see the dashboard
 
-  @student @smoke
+  @student
   Scenario: Login as student
 
     When user enters student username
     And user enters student password
     Then user should see the dashboard
 
-    @admin @smoke
+    @admin
   Scenario: Login as admin
 
     When user enters admin username
