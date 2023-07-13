@@ -17,7 +17,7 @@ public class Etsy_StepDefinitions {
     @Given("user is on the Etsy home page")
     public void user_is_on_the_etsy_home_page() {
         Driver.getDriver().get("https://www.etsy.com");
-        etsyHomePage.cookies.click();
+        //etsyHomePage.cookies.click();
 
     }
 
